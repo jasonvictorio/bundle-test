@@ -6,7 +6,7 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
   const { id } = await params
 
   const task = await prisma.task.findUnique({
-    where: { id: id },
+    where: { id: Number(id) },
   })
 
   if (!task) {
@@ -20,9 +20,7 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
   if (rand < 0.1) {
     return new Response('Simulated network error', { status: 500 })
   }
-  if (task.status === 'pending') {
-    newStatus = 'processing'
-  } else if (rand < 0.6) {
+  if (rand < 0.6) {
     newStatus = 'processing'
   } else if (rand < 0.85) {
     newStatus = 'success'
@@ -31,7 +29,7 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
   }
 
   const updated = await prisma.task.update({
-    where: { id: id },
+    where: { id: Number(id) },
     data: { status: newStatus },
   })
 

@@ -11,8 +11,14 @@ datasource db {
 }
 
 model Task {
-  id        String   @id @default(cuid())
-  name      String
-  status    String
+  id        Int      @id @default(autoincrement())
+  status    Status
   createdAt DateTime @default(now())
+}
+
+enum Status {
+  processing
+  success
+  failed
+  cancelled
 }

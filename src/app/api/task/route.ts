@@ -4,8 +4,7 @@ import { NextResponse } from 'next/server'
 export async function POST() {
   const task = await prisma.task.create({
     data: {
-      name: `Task-${Date.now()}`,
-      status: 'pending',
+      status: 'processing',
     },
   })
 
