@@ -8,7 +8,7 @@ export async function POST() {
     },
   })
 
-  return NextResponse.json({ task_id: task.id })
+  return NextResponse.json({ ...task, task_id: task.id })
 }
 
 export async function GET() {
