@@ -19,11 +19,18 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 npm i
 ```
 
-2. initialize sqlite (sqlite with prisma)
+3. rename /copy.env to /.env
+  
+
+4. initialize sqlite (sqlite with prisma)
 ```
 npx prisma migrate dev --name init
 ```
-1. run dev
+
+5. run dev
 ```
 npm run dev
 ```
+
+
+6.  Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
